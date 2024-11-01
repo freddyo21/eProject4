@@ -1,0 +1,58 @@
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+.footer {
+  padding: 6px;
+  text-align: center;
+  color: white;
+  background: #5E3511;
+}
+
+.wrapper {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5E3511;
+
+  @media screen and (max-width: 1024px) {
+    height: auto;
+  }
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("../../assets/img/food1.jpg");
+
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+
+  /* Full height */
+  height: 50%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+}
+
+.bg-image {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

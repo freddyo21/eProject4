@@ -1,0 +1,21 @@
+<nav class="navbar-fixed-top">
+  <a href="/" class="logo">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="coffee_maker"></mat-icon>&nbsp;
+    Cafe Management
+  </a>
+
+  <button mat-button [matMenuTriggerFor]="isLoggedIn ? user : login" id="user_list_btn" #user_list_btn>
+    {{ username ? 'Hello ' + username : 'Login' }}
+  </button>
+
+  <mat-menu aria-hidden="false" #login="matMenu">
+    <a (click)="handleLoginAction()" mat-menu-item>Login</a>
+    <a (click)="handleSignupAction()" mat-menu-item>Sign up</a>
+    <a (click)="handleforgotPasswordAction()" mat-menu-item>Forgot password?</a>
+  </mat-menu>
+
+  <mat-menu aria-hidden="false" #user="matMenu">
+    <button mat-menu-item>Profile</button>
+    <button mat-menu-item>History</button>
+  </mat-menu>
+</nav>
