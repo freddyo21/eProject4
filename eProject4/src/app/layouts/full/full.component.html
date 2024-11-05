@@ -1,0 +1,38 @@
+<div class="main-container">
+  <mat-toolbar color="primary" class="justify-content-between align-items-center">
+    <button class="btn btn-outline-light" (click)="snav.toggle()" value="sidebarclosed">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div>
+      <span>
+        <i class="fa-solid fa-store"></i> Cafe Management System
+      </span>
+    </div>
+    <div>
+      <mat-menu #profile="matMenu" class="mymegamenu">
+        <button mat-menu-item (click)="changepassword()">
+          <mat-icon>password</mat-icon>change password
+        </button>
+
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>Logout
+        </button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="profile" class="btn btn-outline-light">
+        <i class="fa-solid fa-user"></i>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0">
+    <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
+      fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content class="page-wrapper">
+      <div class="page-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

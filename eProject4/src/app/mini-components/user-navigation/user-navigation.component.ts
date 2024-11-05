@@ -29,10 +29,6 @@ export class UserNavigationComponent {
     private dialog: MatDialog,
   ) { }
 
-  change() {
-    console.log(this.userListBtn.nativeElement.matMenuTriggerFor);
-  }
-
   handleLoginAction() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '550px';

@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
+  Data,
   Router,
 } from '@angular/router';
-import { AuthService } from './auth.service';
-import jwt_decode from 'jwt-decode';
+import { AuthService } from '../services/auth.service';
+import * as Jwt from 'jwt-decode';
 import { GlobalConstants } from '../shared/global-constants';
-import { SnackbarService } from './snackbar.service';
+import { SnackbarService } from '../services/snackbar.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +20,7 @@ export class RouteGuardService {
   ) {}
 
   canActivate(router: ActivatedRouteSnapshot): boolean {
-    let expectRoleArray = router.data;
+    let expectRoleArray = router.data as Data[string];
     expectRoleArray = expectRoleArray.expectedRole;
 
     const token: any = localStorage.getItem('token');
@@ -27,7 +28,7 @@ export class RouteGuardService {
     var tokenPayload: any;
 
     try {
-      tokenPayload = jwt_decode(token);
+      tokenPayload = Jwt.jwtDecode(token);
     } catch (err) {
       localStorage.clear();
       this.router.navigate(['/']);

@@ -12,7 +12,7 @@ export class SnackbarService {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 2000,
-        panelClass: ['green-snackbar'],
+        panelClass: ['black-snackbar'],
       });
     } else {
       this.snackBar.open(message, '', {
