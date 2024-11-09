@@ -1,3 +1,5 @@
+import { HttpHeaders } from "@angular/common/http";
+
 export class GlobalConstants {
   // Meesage
   public static genericError: string =
@@ -27,4 +29,15 @@ export class GlobalConstants {
   public static oldPasswordError: string = 'Error : Wrong Old Password';
 
   public static signupSuccess: string = 'Signed Up Successfully';
+
+  public static loginSuccess: string = 'Login Successfully';
+
+  public static passwordChangeSuccess: string = 'Password Changed Successfully';
+
+  public static headersGet = new HttpHeaders()
+    .set('Access-Control-Allow-Origin', '*');
+
+  public static headersPost = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*');
 }

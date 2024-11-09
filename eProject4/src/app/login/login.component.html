@@ -12,14 +12,14 @@
   <form [formGroup]="loginForm">
     <div fxflex fxLayout="column">
       <mat-form-field apperence="standard" fxFlex>
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" required />
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required />
         <mat-error *ngIf="
-            loginForm.controls.email.touched &&
-            loginForm.controls.email.invalid
+            loginForm.controls.username.touched &&
+            loginForm.controls.username.invalid
           ">
-          <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
-          <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+          <span *ngIf="loginForm.controls.username.errors.required">This field is mandatory.</span>
+          <span *ngIf="loginForm.controls.username.errors.pattern">This field is invalid.</span>
         </mat-error>
       </mat-form-field>
 

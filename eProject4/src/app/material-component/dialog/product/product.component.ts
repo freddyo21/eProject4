@@ -63,11 +63,11 @@ export class ProductComponent implements OnInit {
       this.action = 'Update';
       this.productForm.patchValue(this.dialogData.data);
     }
-    this.getCategorys();
+    this.getCategories();
   }
 
-  getCategorys() {
-    this.categoryService.getCategorys().subscribe({
+  getCategories() {
+    this.categoryService.getCategories().subscribe({
       next: (response: any) => {
         this.categories = response;
       },

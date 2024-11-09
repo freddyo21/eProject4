@@ -62,7 +62,7 @@ export class ManageOrderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getCategorys();
+    this.getCategories();
     this.manageOrderForm = this.formBulider.group({
       name: [
         null,
@@ -76,14 +76,14 @@ export class ManageOrderComponent implements OnInit {
       paymentMethod: [null, [Validators.required]],
       product: [null, [Validators.required]],
       category: [null, [Validators.required]],
-      quantity: [null, [Validators.required]],
       price: [null, [Validators.required]],
+      quantity: [null, [Validators.required]],
       total: [0, [Validators.required]],
     });
   }
 
-  getCategorys() {
-    this.categoryService.getFilteredCategorys().subscribe({
+  getCategories() {
+    this.categoryService.getFilteredCategories().subscribe({
       next: (response: any) => {
         this.categories = response;
       },

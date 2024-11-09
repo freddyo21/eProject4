@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -11,7 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     MatDialogModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
   templateUrl: './view-bill-products.component.html',
   styleUrls: ['./view-bill-products.component.scss'],
@@ -34,7 +36,9 @@ export class ViewBillProductsComponent implements OnInit {
 
   ngOnInit() {
     this.data = this.dialogData.data;
-    this.dataSource = JSON.parse(this.dialogData.data.productDetails);
-    console.log(this.dialogData.data);
+    if (typeof this.data === "object") {
+      this.dataSource = JSON.parse(this.data.productDetails);
+      console.log(this.data);
+    }
   }
 }

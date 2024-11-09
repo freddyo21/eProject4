@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { GlobalConstants } from '../shared/global-constants';
 
 @Injectable({
   providedIn: 'root',
@@ -11,21 +12,25 @@ export class CategoryService {
 
   add(data: any) {
     return this.httpClient.post(this.url + '/category/add', data, {
-      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      headers: GlobalConstants.headersPost,
     });
   }
 
   update(data: any) {
     return this.httpClient.post(this.url + '/category/update', data, {
-      headers: new HttpHeaders().set('Content-Type', 'application/json'),
+      headers: GlobalConstants.headersPost,
     });
   }
 
-  getCategorys() {
-    return this.httpClient.get(this.url + '/category/get');
+  getCategories() {
+    return this.httpClient.get(this.url + '/category/get', {
+      headers: GlobalConstants.headersGet,
+    });
   }
 
-  getFilteredCategorys() {
-    return this.httpClient.get(this.url + '/category/get?filterValue=true');
+  getFilteredCategories() {
+    return this.httpClient.get(this.url + '/category/get?filterValue=true', {
+      headers: GlobalConstants.headersGet,
+    });
   }
 }

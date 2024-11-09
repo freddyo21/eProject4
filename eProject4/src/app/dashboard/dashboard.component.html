@@ -1,39 +1,47 @@
-<body>
-  <mat-card>
-    <div class="p-3 fw-bold">
-      <span>Dashboard</span>
-    </div>
-  </mat-card>
+<mat-card>
+  <div class="fs-6 p-3 fw-bold">
+    <span>Dashboard</span>
+  </div>
+</mat-card>
 
-  <div class="row">
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title text-center">Our Categories Number</h2>
-          <p class="card-text">{{data?.category}}</p>
-          <button class="button" [routerLink]="['/cafe/category']">View Category</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title text-center">Our Products Number</h2>
-          <p class="card-text">{{data?.product}}</p>
-          <button class="button" [routerLink]="['/cafe/product']">View Product</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title text-center">Our Bills Number</h2>
-          <p class="card-text">{{data?.bill}}</p>
-          <button class="button" [routerLink]="['/cafe/bill']">View Bill</button>
-        </div>
+<div class="row">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center">Number of categories</h2>
+        <p class="card-text">{{data?.category}}</p>
+        <button class="button" [routerLink]="['/cafe/category']">View Category</button>
       </div>
     </div>
   </div>
-</body>
+
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center">Number of products</h2>
+        <p class="card-text">{{data?.product}}</p>
+        <button class="button" [routerLink]="['/cafe/product']">View Product</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center">Number of bills</h2>
+        <p class="card-text">{{data?.bill}}</p>
+        <button class="button" [routerLink]="['/cafe/bill']">View Bill</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-4" *ngFor="let item of dashboardItems">
+  <div class="card">
+  <div class="card-body">
+    <h2 class="card-title text-center">{{item.title}}</h2>
+    <p class="card-text">{{item.value}}</p>
+    <button class="button" [routerLink]="[item.link]">View {{item.title.split(' ')[1]}}</button>
+  </div>
+  </div>
+</div> -->

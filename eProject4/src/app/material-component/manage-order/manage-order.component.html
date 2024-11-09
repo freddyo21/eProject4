@@ -1,16 +1,20 @@
 <mat-card>
-  <b><span>Manage Order</span></b>
+  <div class="fs-6 mb-3 fw-bold">
+    <span>Manage Orders</span>
+  </div>
   <button mat-flat-button color="primary" class="float-right" [disabled]="validateSubmit()" (click)="submitAction()">
     <mat-icon>print</mat-icon>Submit & Bill
   </button>
 </mat-card>
+
 <hr />
+
 <mat-card>
-  <b><span>Customer Details</span></b>
+  <h2>Customer Details</h2>
   <form [formGroup]="manageOrderForm">
-    <div fxFlex fxLayout="column">
+    <div fxLayout="column">
       <div fxLayout="row wrap">
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" required />
           <mat-error *ngIf="
@@ -22,7 +26,7 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
           <input matInput formControlName="email" required />
           <mat-error *ngIf="
@@ -34,7 +38,7 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Contact Number</mat-label>
           <input matInput formControlName="contactNumber" required />
           <mat-error *ngIf="
@@ -46,7 +50,7 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Payment Method</mat-label>
           <mat-select formControlName="paymentMethod" required>
             <mat-option value="Cash">Cash</mat-option>
@@ -66,13 +70,15 @@
     </div>
   </form>
 </mat-card>
+
 <hr />
+
 <mat-card>
-  <b><span>Select Product</span></b>
+  <h2>Select Product</h2>
   <form [formGroup]="manageOrderForm">
-    <div fxFlex fxLayout="column">
+    <div fxLayout="column">
       <div fxLayout="row wrap">
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Category</mat-label>
           <mat-select formControlName="category" (selectionChange)="getProductsByCategory($event.value)">
             <mat-option *ngFor="let category of categories" [value]="category">{{
@@ -81,7 +87,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Product</mat-label>
           <mat-select formControlName="product" (selectionChange)="getProductDetails($event.value)">
             <mat-option *ngFor="let product of products" [value]="product">{{
@@ -90,7 +96,7 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Price</mat-label>
           <input matInput formControlName="price" required />
           <mat-error *ngIf="
@@ -102,7 +108,7 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>َQuantity</mat-label>
           <input matInput formControlName="quantity" required (keyup)="setQuantity($event)" />
           <mat-error *ngIf="
@@ -114,7 +120,7 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field apperence="standard" fxFlex>
+        <mat-form-field appearance="fill">
           <mat-label>Total</mat-label>
           <input matInput formControlName="total" required readonly />
           <mat-error *ngIf="

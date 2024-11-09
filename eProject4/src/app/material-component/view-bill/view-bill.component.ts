@@ -47,7 +47,11 @@ export class ViewBillComponent implements OnInit {
 
   ngOnInit(): void {
     this.tableData();
+    this.handleDeleteAction({
+      name: "name",
+    });
   }
+
   tableData() {
     this.billService.getBills().subscribe({
       next: (response: any) => {
@@ -74,28 +78,32 @@ export class ViewBillComponent implements OnInit {
   }
 
   handleViewAction(values: any) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = {
-      data: values,
+    const dialogConfig: MatDialogConfig = {
+      data: {
+        data: values,
+      },
+      width: "80%",
     };
-    dialogConfig.width = '100%';
     const dialogRef = this.dialog.open(ViewBillProductsComponent, dialogConfig);
     this.router.events.subscribe(() => {
       dialogRef.close();
     });
   }
+
   handleDeleteAction(values: any) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = {
-      message: 'delete ' + values.name + ' bill',
-      confirmation: true,
+    const dialogConfig: MatDialogConfig = {
+      data: {
+        message: `Delete ${values.name}'s bill`,
+        confirmation: true,
+      }
     };
     const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
-    const sub = dialogRef.componentInstance.onEmitStatusChange.subscribe(() => {
+    dialogRef.componentInstance.onEmitStatusChange.subscribe(() => {
       this.deleteBill(values.id);
       dialogRef.close();
     });
   }
+
   deleteBill(id: any) {
     this.billService.delete(id).subscribe({
       next: (response: any) => {
@@ -117,6 +125,7 @@ export class ViewBillComponent implements OnInit {
       }
     });
   }
+
   downloadReportAction(values: any) {
     var data = {
       name: values.name,
@@ -129,9 +138,10 @@ export class ViewBillComponent implements OnInit {
     };
     this.downloadFile(values.uuid, data);
   }
+
   downloadFile(fileName: string, data: any) {
     this.billService.getPdf(data).subscribe((response: any) => {
-      saveAs(response, fileName + '.pdf');
+      saveAs(response, `${fileName}.pdf`);
     });
   }
 }
